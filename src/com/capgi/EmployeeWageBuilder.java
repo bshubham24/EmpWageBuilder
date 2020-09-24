@@ -8,11 +8,16 @@ public class EmployeeWageBuilder {
 		int EMP_RATE_PER_HOUR = 20;
 		int NO_OF_DAYS = 2;
 		int total_wage=0;
+		int EMP_MAX_HOURS = 10;
+		
 		int emp_Hrs=0;
-		int emp_Wage=0;
-		for(int i=0; i<NO_OF_DAYS;i++) {
-		int Check = (int) Math.floor(Math.random()*10)%3;
-		switch(Check) {
+		
+		int total_hrs = 0;
+		int total_days=0;
+		while(total_days<NO_OF_DAYS && total_hrs<EMP_MAX_HOURS) {
+			total_days++;
+		int CHECK = (int) Math.floor(Math.random()*10)%3;
+		switch(CHECK) {
 		case IS_FULLTIME_EMPLOYEE :
 			emp_Hrs = 8;
 		    break;
@@ -24,11 +29,12 @@ public class EmployeeWageBuilder {
 		   default:
 			emp_Hrs = 0;
 		}
-		emp_Wage = emp_Hrs*EMP_RATE_PER_HOUR;
-		total_wage+=emp_Wage;
+		total_hrs+= emp_Hrs;
 		}
+		
+		total_wage=total_hrs*EMP_RATE_PER_HOUR;
+		
 		System.out.println(total_wage);
-	
 		
    }
    
