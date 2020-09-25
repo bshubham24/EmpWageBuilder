@@ -4,12 +4,8 @@ public class EmployeeWageBuilder {
 
 	public final static int IS_FULLTIME_EMPLOYEE = 1;
 	public final static int IS_PARTTIME_EMPLOYEE = 2;
-	public final static int EMP_RATE_PER_HOUR = 20;
-	public final static int NO_OF_DAYS = 2;
-	int total_wage = 0;
-	static int EMP_MAX_HOURS = 10;
 
-	public static int ComputeEmpWage() {
+	public static int ComputeEmpWage(String company, int EMP_RATE_PER_HOUR, int NO_OF_DAYS, int EMP_MAX_HOURS) {
 
 		int emp_Hrs = 0;
 
@@ -36,13 +32,14 @@ public class EmployeeWageBuilder {
 
 		int total_wage = total_hrs * EMP_RATE_PER_HOUR;
 
-		System.out.println("Total wage: " + total_wage);
+		System.out.println("Total wage for " + company + " : " + total_wage);
 		return total_wage;
 
 	}
 
 	public static void main(String[] args) {
-		ComputeEmpWage();
+		ComputeEmpWage("Amazon", 20, 3, 12);
+		ComputeEmpWage("reliance jio", 10, 2, 8);
 	}
 
 }
